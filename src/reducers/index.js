@@ -1,9 +1,37 @@
+import {
+  LOADING_START,
+  LOADING_SUCCESS,
+  LOADING_FAILURE,
+  POSITION_UPDATE,
+  UPDATE_NAME,
+  SUMMARY_UPDATE,
+} from "../actions";
 
 export const initialState = {
-}
+  smurfs: [],
+  loading: false,
+  error: "",
+};
 
-const reducer = ()=>{
-}
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOADING_START:
+      return { ...state, loading: true };
+    case LOADING_SUCCESS:
+      return { ...state, loading: true };
+    case LOADING_FAILURE:
+      return { ...state, loading: false };
+    case POSITION_UPDATE:
+      return { ...state, loading: true };
+    case UPDATE_NAME:
+      return { ...state, loading: true };
+    case SUMMARY_UPDATE:
+      return { ...state, loading: true };
+    default:
+      console.log("Error: unknown action type in Title Reducer");
+      return state;
+  }
+};
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
