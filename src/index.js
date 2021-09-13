@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
+import reducer, { initialState } from "./reducers/index";
 import logger from "redux-logger";
 
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 import Header from "./components/Header";
 import AddForm from "./components/AddForm";
 import SmurfList from "./components/Smurf";
@@ -13,7 +15,7 @@ import Smurf from "./components/Smurf";
 const { worker } = require("./mocks/browser");
 worker.start();
 
-const store = createStore(appReducer, applyMiddleware(logger));
+const store = createStore(reducer, applyMiddleware(logger));
 
 function App() {
   return (
